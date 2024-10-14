@@ -1,0 +1,343 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    overflow: hidden;
+}
+
+#canvas1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(5px) contrast(3);
+}
+
+#audio1 {
+    display: none;
+}
+
+
+/* 시작 버튼 스타일 */
+
+#startButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+    transition: transform 0.6s ease-in-out;
+}
+
+#startButton img {
+    width: 70%;
+    /* 필요에 따라 크기 조절 */
+    height: auto;
+}
+
+#startButton:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    /* 중앙 위치 유지하며 1.1배 확대 */
+}
+
+
+/* 이미지 기반 버튼 공통 스타일 */
+
+button img,
+label img {
+    width: 70px;
+    /* 필요에 따라 크기 조절 */
+    height: auto;
+    transition: transform 0.2s;
+}
+
+
+/* 버튼 초기 숨김 */
+
+#playPauseButton,
+#micButton,
+#fileUploadLabel {
+    display: none;
+}
+
+
+/* 재생/일시정지 버튼 및 마이크 버튼 위치 설정 */
+
+#playPauseButton {
+    background: none;
+    border: none;
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    z-index: 100;
+}
+
+#micButton {
+    border: none;
+    background: none;
+    position: absolute;
+    bottom: 20px;
+    left: 100px;
+    z-index: 100;
+}
+
+#fileUploadLabel {
+    position: absolute;
+    bottom: 20px;
+    left: 190px;
+    z-index: 100;
+}
+
+#playPauseButton,
+#micButton,
+#fileUploadLabel {
+    transition: transform 0.6s ease-in-out;
+    /* 부드러운 확대/축소 애니메이션 */
+}
+
+
+/* 호버 시 1.1배 확대 */
+
+#playPauseButton:hover,
+#micButton:hover,
+#fileUploadLabel:hover {
+    transform: scale(1.1);
+}
+
+
+/* Control Panel Styles */
+
+#control-panel {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    background: rgba(28, 28, 28, 0.7);
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 1000;
+    overflow: hidden;
+    width: auto;
+    max-height: 100px;
+    transition: max-height 0.6s ease-in-out;
+    flex-direction: column-reverse;
+    transform-origin: bottom;
+    align-items: center;
+    width: 270px;
+}
+
+.customize-text {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+#control-panel.expanded {
+    max-height: 400px;
+}
+
+.control-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.control {
+    position: relative;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.control:last-child {
+    margin-right: 0;
+}
+
+.control .color-preview {
+    width: 60px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.color-preview span {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    user-select: none;
+}
+
+.control-content {
+    display: flex;
+    padding: 2px;
+    overflow: hidden;
+}
+
+
+/* Custom Slider Styles */
+
+.custom-slider {
+    -webkit-appearance: none;
+    width: 150px;
+    height: 8px;
+    border-radius: 5px;
+    background: #ccc;
+    outline: none;
+    margin-bottom: 3px;
+}
+
+.custom-slider:hover {
+    opacity: 1;
+}
+
+
+/* Webkit 브라우저용 슬라이더 thumb */
+
+.custom-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 20%;
+    background: #9b9b9b;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.custom-slider::-webkit-slider-thumb:hover {
+    background: #eee;
+}
+
+
+/* Firefox 브라우저용 슬라이더 thumb */
+
+.custom-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #9b9b9b;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: -30px;
+}
+
+.custom-slider::-moz-range-thumb:hover {
+    background: #eee;
+}
+
+
+/* 컨트롤 콘텐츠 확장 시 */
+
+#control-panel.expanded .control-content {
+    max-height: 300px;
+}
+
+.content-item {
+    display: none;
+    width: 100%;
+}
+
+.content-item.active {
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+.palette {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(4, 30px);
+    gap: 3px;
+}
+
+.color-option {
+    width: 25px;
+    height: 25px;
+    margin: 0.1px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.control-content input[type="range"] {
+    width: 260px;
+    margin-top: 10px;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    font-weight: bolder;
+}
+
+.navbar {
+    position: fixed;
+    /* 화면에 고정 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.nav-item {
+    text-decoration: none;
+    /* 밑줄 제거 */
+    color: inherit;
+    /* 부모의 색상을 상속 */
+    font-size: 62px;
+    margin: 0 73px;
+    cursor: pointer;
+    position: relative;
+    padding: 10px;
+    z-index: 1;
+    font-weight: bolder;
+    transition: color 0.3s ease;
+}
+
+
+/* 흰색 박스 스타일 */
+
+.hover-bg {
+    position: absolute;
+    top: 12%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    opacity: 0;
+    /* 기본값 투명 */
+    z-index: -1;
+    /* 텍스트 뒤에 나타나도록 */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+
+/* hover-text 스타일 */
+
+.hover-text {
+    position: absolute;
+    bottom: -13px;
+    /* 텍스트의 위치 조정 */
+    left: 50%;
+    transform: translateX(-50%);
+    color: #000;
+    font-size: 26px;
+    opacity: 0;
+    /* 기본값은 투명하게 설정 */
+    transition: opacity 0.3s ease;
+    z-index: 5;
+}

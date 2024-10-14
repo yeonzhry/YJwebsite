@@ -1,0 +1,131 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    font-weight: bolder;
+}
+
+.navbar {
+    position: fixed;
+    /* cd 화면에 고정 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.nav-item {
+    text-decoration: none;
+    /* 밑줄 제거 */
+    color: inherit;
+    /* 부모의 색상을 상속 */
+    font-size: 62px;
+    margin: 0 73px;
+    cursor: pointer;
+    position: relative;
+    padding: 10px;
+    z-index: 1;
+    font-weight: bolder;
+    transition: color 0.3s ease;
+}
+
+
+/* 흰색 박스 스타일 */
+
+.hover-bg {
+    position: absolute;
+    top: 12%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    opacity: 0;
+    /* 기본값 투명 */
+    z-index: -1;
+    /* 텍스트 뒤에 나타나도록 */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+
+/* hover-text 스타일 */
+
+.hover-text {
+    position: absolute;
+    bottom: -13px;
+    /* 텍스트의 위치 조정 */
+    left: 50%;
+    transform: translateX(-50%);
+    color: #000;
+    font-size: 26px;
+    opacity: 0;
+    /* 기본값은 투명하게 설정 */
+    transition: opacity 0.3s ease;
+    z-index: 5;
+}
+
+.content {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    /* 화면 전체 높이를 차지 */
+    width: 100%;
+    margin-top: 100px;
+    z-index: -1;
+}
+
+.image-container {
+    position: relative;
+}
+
+.photo-image {
+    width: 500px;
+    /* 원하는 크기로 조정 */
+    height: auto;
+    cursor: pointer;
+    /* 클릭 가능 표시 */
+    border: 5px solid white;
+}
+
+.buttons-container {
+    position: absolute;
+    bottom: 15px;
+    right: -116px;
+    display: flex;
+    flex-direction: column;
+    gap: 6.8px;
+    /* 버튼 간 간격 */
+}
+
+.button-link {
+    display: block;
+}
+
+.button-image {
+    width: 50%;
+    /* 버튼 이미지 크기 */
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.button-image:hover {
+    transform: scale(1.1);
+    /* 버튼 호버 시 확대 효과 */
+}
+
+.pointer-image {
+    position: absolute;
+    width: 120px;
+    /* 포인터 이미지 크기 조정 */
+    height: auto;
+    /* margin-left: 870px;
+    margin-top: -30px; */
+    top: 70%;
+    left: 60%;
+    /* 메인 이미지와 포인터 이미지 간 간5 */
+    z-index: 9999;
+    pointer-events: none;
+}

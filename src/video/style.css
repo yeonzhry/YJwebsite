@@ -1,0 +1,73 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    font-weight: bolder;
+}
+
+.canvas {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.nav-item {
+    text-decoration: none;
+    /* 밑줄 제거 */
+    color: inherit;
+    /* 부모의 색상을 상속 */
+    font-size: 62px;
+    margin: 0 73px;
+    cursor: pointer;
+    position: relative;
+    padding: 10px;
+    z-index: 1;
+    font-weight: bolder;
+    transition: color 0.3s ease;
+}
+
+
+/* 흰색 박스 스타일 */
+
+.hover-bg {
+    position: absolute;
+    top: 12%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    opacity: 0;
+    /* 기본값 투명 */
+    z-index: -1;
+    /* 텍스트 뒤에 나타나도록 */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+
+/* hover-text 스타일 */
+
+.hover-text {
+    position: absolute;
+    bottom: -13px;
+    /* 텍스트의 위치 조정 */
+    left: 50%;
+    transform: translateX(-50%);
+    color: #000;
+    font-size: 26px;
+    opacity: 0;
+    /* 기본값은 투명하게 설정 */
+    transition: opacity 0.3s ease;
+    z-index: 5;
+}

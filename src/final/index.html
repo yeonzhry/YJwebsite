@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+
+</head>
+
+<body>
+    <div class="project-container">
+        <div class="project-section" id="section">
+            <div class="project-item">
+                <video src="../final/video1.mov" muted loop class="project-video"></video>
+                <div class="video-description">
+                    <p>
+                        시작 화면임 듀..앙앙앙... 배가 너무 고프다... 제가 로고를 만들었고 three.js로 글리치 효과를 넣었어요 클릭투스타트를 호버하면 확대가 되고 클릭하면 웹사이트 시작 ㄱㄴ
+                    </p>
+                </div>
+            </div>
+            <div class="project-item">
+                <video src="../final/vid2.mp4" muted loop class="project-video"></video>
+                <div class="video-description">
+                    <p>
+                        그리드 우땨땨... 제가 찍은 사진과 영상으로 cctv 컨셉의 그리드를 만들었어요 각 그리드에 마우스를 호버하면 확대됨요 듀...
+                </div>
+            </div>
+            <div class="project-item">
+                <video src="../final/video3.mov" muted loop class="project-video"></video>
+                <div class="video-description">
+                    <p>
+                        비주얼라이저 노래 뭐하지? ㅠㅠ 오디오를 시각적으로 보여주는 비주얼라이저를 만듦 마이크를 켜서 목소리로 할 수도 있고 직접 오디오 파일을 업로드해서도 쓸 수 있음 그리고 비주얼라이저의 색이랑 블러 투명도를 직접 커스터마이징 ㄱㄴ
+                    </p>
+                </div>
+            </div>
+            <div class="project-item">
+                <video src="../final/video4.mov" muted loop class="project-video"></video>
+                <div class="video-description">
+                    <p>
+                        정채원과 평생을 약속하겠습니다 우땨댜 농담곰 🩷 채원 축복해주세요
+                    </p>
+                </div>
+            </div>
+            <div class="project-item">
+                <video src="../final/video5.mov" muted loop class="project-video"></video>
+                <div class="video-description">
+                    <p>
+                        신디사이저 땨땨 근데 지금 말도 안되는 오류가 있음 음? 키보드 자판을 눌러서 연주할 수 있고 신디사이저 종류와 이펙트를 설정 ㄱㄴ 이펙트는 강도도 조절 ㄱㄴ 볼륨 조절도 ㄱㄴ 듀듀바바~~ 듀바듀바뷰
+                    </p>
+                </div>
+            </div>
+            <div class="project-item">
+                <video src="../final/video6.mov" muted loop class="project-video"></video>
+                <div class="video-description">
+                    <p>
+                        티비 모델에 크비 때 만든 영상 넣음 땨땨.. ㄴㅁ신기하네 three.js 써서 글리치 효과도 넣었는데 저는 아무것도 몰르겠어요.. 땨..
+                    </p>
+                </div>
+            </div>
+            <div class="project-item">
+                <video src="../final/video7.mov" muted loop class="project-video"></video>
+                <div class="video-description">
+                    <p>
+                        에스파 누나들 사랑해요 저를 설명할 수 있는 이미지를 만들었어요 코드파일 버튼이랑 인스타그램 버튼을 누르면 해당 링크로 연결됨 그리고 이미지를 클릭하면 창이 와다다다 보인답니다 땨 ~~
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img src="../hover.png" id="hover" />
+
+    <canvas class="webgl"></canvas>
+    <nav class="navbar">
+        <a href="../grid/index.html" class="nav-item" data-page="Y" id="tap-Y">
+        Y
+            <div class="hover-bg"></div>
+            <span class="hover-text">CH</span>
+        </a>
+        <a href="../audio/index.html" class="nav-item" data-page="E" id="tap-E">
+        E
+            <div class="hover-bg"></div>
+            <span class="hover-text">CH</span>
+        </a>
+        <a href="../model/index.html" class="nav-item" data-page="O" id="tap-O">
+        O
+            <div class="hover-bg"></div>
+            <span class="hover-text">CH</span>
+        </a>
+        <a href="../synth/index.html" class="nav-item" data-page="N" id="tap-N">
+        N
+            <div class="hover-bg"></div>
+            <span class="hover-text">CH</span>
+        </a>
+        <a href="../video/index.html" class="nav-item" data-page="J" id="tap-J">
+        J
+            <div class="hover-bg"></div>
+            <span class="hover-text">CH</span>
+        </a>
+        <a href="../about/index.html" class="nav-item" data-page="A" id="tap-A">
+        A
+            <div class="hover-bg"></div>
+            <span class="hover-text">CH</span>
+        </a>
+        <a href="../final/index.html" class="nav-item" data-page="E" id="tap-E!">
+        E
+            <div class="hover-bg"></div>
+            <span class="hover-text">CH</span>
+        </a>
+    </nav>
+    <script type="module" src="./script.js"></script>
+
+</body>
+
+</html>

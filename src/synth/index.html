@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synthesizer</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.32/Tone.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+</head>
+
+<body>
+    <div id="controls">
+        <div class="control-group" id="'synthControl">
+            <label for="synthSelector">Select Synth</label>
+            <select id="synthSelector">
+                <option value="PolySynth">PolySynth</option>
+                <option value="FMSynth">FMSynth</option>
+                <option value="AMSynth">AMSynth</option>
+                <option value="MonoSynth">MonoSynth</option>
+                <option value="PluckSynth">PluckSynth</option>
+                <option value="MembraneSynth">MembraneSynth</option>
+            </select>
+        </div>
+
+        <div class="control-group" id="effectControl">
+            <label for="effectSelector">Select Effect</label>
+            <select id="effectSelector">
+                <option value="None">None</option>
+                <option value="Reverb">Reverb</option>
+                <option value="Delay">Delay</option>
+                <option value="Chorus">Chorus</option>
+                <option value="Distortion">Distortion</option>
+            </select>
+        </div>
+
+        <div class="control-group volumeControl" id="volumeControlGroup">
+            <label for="volumeControl">Volume</label>
+            <input type="range" id="volumeControl" min="0" max="100" value="50">
+        </div>
+
+        <div id="effectControls">
+            <!-- Reverb 조절 슬라이더 그룹 -->
+            <div class="control-group styled-slider effect-slider" id="reverbControls">
+                <label for="reverbDecay">Reverb Decay</label>
+                <input type="range" id="reverbDecay" min="0" max="10" step="0.1" value="2">
+            </div>
+
+            <!-- Delay 조절 슬라이더 그룹 -->
+            <div class="control-group styled-slider effect-slider" id="delayControls">
+                <label for="delayTime">Delay Time (ms)</label>
+                <input type="range" id="delayTime" min="0" max="2000" step="1" value="500">
+            </div>
+
+            <!-- Chorus 조절 슬라이더 그룹 -->
+            <div class="control-group styled-slider effect-slider" id="chorusControls">
+                <label for="chorusDepth">Chorus Depth</label>
+                <input type="range" id="chorusDepth" min="0" max="1" step="0.1" value="0.5">
+            </div>
+
+            <!-- Distortion 조절 슬라이더 그룹 -->
+            <div class="control-group styled-slider effect-slider" id="distortionControls">
+                <label for="distortion">Distortion</label>
+                <input type="range" id="distortion" min="0" max="1" step="0.1" value="0.5">
+            </div>
+        </div>
+    </div>
+
+    <img src="../synth.png" id="play" />
+
+    <div id="container"></div>
+    <nav class="navbar">
+        <a href="../grid/index.html" class="nav-item" data-page="Y" id="tap-Y">
+        Y
+            <div class="hover-bg"></div>
+            <span class="hover-text">CH</span>
+        </a>
+        <a href="../audio/index.html" class="nav-item" data-page="E" id="tap-E">
+        E
+            <div class="hover-bg"></div>
+            <span class="hover-text">CH</span>
+        </a>
+        <a href="../model/index.html" class="nav-item" data-page="O" id="tap-O">
+        O
+            <div class="hover-bg"></div>
+            <span class="hover-text">CH</span>
+        </a>
+        <a href="../synth/index.html" class="nav-item" data-page="N" id="tap-N">
+        N
+            <div class="hover-bg"></div>
+            <span class="hover-text">CH</span>
+        </a>
+        <a href="../video/index.html" class="nav-item" data-page="J" id="tap-J">
+        J
+            <div class="hover-bg"></div>
+            <span class="hover-text">CH</span>
+        </a>
+        <a href="../about/index.html" class="nav-item" data-page="A" id="tap-A">
+        A
+            <div class="hover-bg"></div>
+            <span class="hover-text">CH</span>
+        </a>
+        <a href="../final/index.html" class="nav-item" data-page="E" id="tap-E!">
+        E
+            <div class="hover-bg"></div>
+            <span class="hover-text">CH</span>
+        </a>
+    </nav>
+    <script type="module" src="./script.js"></script>
+</body>
+
+</html>
