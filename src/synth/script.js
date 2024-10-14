@@ -8,6 +8,17 @@ const masterVolume = new Tone.Volume(0).toDestination();
 setSynth('PolySynth');
 setEffect('None');
 
+window.noteDown = function(elem, isSharp, event) {
+    var note = elem.dataset.note;
+    elem.style.background = isSharp ? 'black' : '#ccc';
+    synth.triggerAttackRelease(note, "16n");
+    event.stopPropagation();
+};
+
+window.noteUp = function(elem, isSharp) {
+    elem.style.background = isSharp ? '#777' : 'white';
+};
+
 document.getElementById('synthSelector').addEventListener('change', function() {
     setSynth(this.value);
 });
@@ -73,8 +84,6 @@ function setSynth(synthType) {
     applyEffects();
 }
 
-
-// Effect 설정 함수
 function setEffect(effectType) {
     if (effect) {
         effect.disconnect();
@@ -83,7 +92,6 @@ function setEffect(effectType) {
 
     const effectControls = document.getElementById('effectControls');
 
-    // 모든 이펙트 슬라이더 숨기기
     const allEffectSliders = document.querySelectorAll('.effect-slider');
     allEffectSliders.forEach(slider => {
         slider.style.opacity = 0;
@@ -93,14 +101,12 @@ function setEffect(effectType) {
         effect = null;
         effectControls.style.opacity = 0;
     } else {
-        // 선택된 이펙트 슬라이더만 표시
         const selectedEffectSlider = document.getElementById(`${effectType.toLowerCase()}Controls`);
         if (selectedEffectSlider) {
             selectedEffectSlider.style.opacity = 1;
-            effectControls.style.opacity = 1; // effectControls를 표시
+            effectControls.style.opacity = 1;
         }
 
-        // 이펙트 설정
         switch (effectType) {
             case 'Reverb':
                 effect = new Tone.Reverb({
@@ -136,7 +142,6 @@ function setEffect(effectType) {
     applyEffects();
 }
 
-// 추가: 이펙트 슬라이더 값 변경 시 이펙트 업데이트
 document.querySelectorAll('.effect-slider input[type="range"]').forEach(slider => {
     slider.addEventListener('input', () => {
         const selectedEffect = document.getElementById('effectSelector').value;
@@ -233,10 +238,8 @@ const keyMap = {
     '4': 'A5',
     '5': 'A#5',
     '6': 'B5'
-        // 필요에 따라 더 추가 가능
 };
 
-// 현재 눌린 키를 추적하여 반복 방지
 const pressedKeys = new Set();
 
 document.addEventListener('keydown', (event) => {
@@ -246,7 +249,6 @@ document.addEventListener('keydown', (event) => {
         const note = keyMap[key];
         synth.triggerAttackRelease(note, "16n");
 
-        // 해당 노트의 HTML 요소 활성화
         const noteElem = document.querySelector(`[data-note='${note}']`);
         if (noteElem) {
             noteElem.style.background = note.includes('#') ? 'black' : '#ccc';
@@ -260,7 +262,6 @@ document.addEventListener('keyup', (event) => {
         pressedKeys.delete(key);
         const note = keyMap[key];
 
-        // 해당 노트의 HTML 요소 비활성화
         const noteElem = document.querySelector(`[data-note='${note}']`);
         if (noteElem) {
             noteElem.style.background = note.includes('#') ? '#777' : 'white';
@@ -269,10 +270,8 @@ document.addEventListener('keyup', (event) => {
 });
 
 
-// 활성 탭 추적 변수 선언 및 초기 활성 탭 설정
 let activeTab = document.getElementById('tap-N');
 
-// 초기 활성 탭에 호버 효과 적용
 gsap.to(activeTab, {
     duration: 0,
     color: '#000',
@@ -290,13 +289,10 @@ gsap.to(activeTab.querySelector('.hover-text'), {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 네비게이션 바 호버 및 클릭 효과
     const navItems = document.querySelectorAll('.nav-item');
 
-    // 활성 탭 추적 변수 선언 및 초기 활성 탭 설정 (Y 탭으로 설정)
     let activeTab = document.getElementById('tap-N');
 
-    // 초기 활성 탭에 호버 효과 적용
     if (activeTab) {
         gsap.to(activeTab, {
             duration: 0,
@@ -318,20 +314,17 @@ document.addEventListener('DOMContentLoaded', () => {
     navItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
             if (item !== activeTab) {
-                // 텍스트 색상 변경
                 gsap.to(item, {
                     duration: 0.3,
                     color: '#000',
                 });
 
-                // 흰색 박스 나타나기
                 gsap.to(item.querySelector('.hover-bg'), {
                     duration: 0.3,
                     opacity: 1,
                     scale: 1.1,
                 });
 
-                // 호버 텍스트 나타나기
                 gsap.to(item.querySelector('.hover-text'), {
                     duration: 0.3,
                     opacity: 1,
@@ -341,20 +334,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         item.addEventListener('mouseleave', () => {
             if (item !== activeTab) {
-                // 텍스트 색상 복귀
                 gsap.to(item, {
                     duration: 0.3,
                     color: '#fff',
                 });
 
-                // 흰색 박스 숨기기
                 gsap.to(item.querySelector('.hover-bg'), {
                     duration: 0.3,
                     opacity: 0,
                     scale: 1,
                 });
 
-                // 호버 텍스트 숨기기
                 gsap.to(item.querySelector('.hover-text'), {
                     duration: 0.3,
                     opacity: 0,
@@ -362,11 +352,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // 클릭 이벤트에서 애니메이션 제거
         item.addEventListener('click', () => {
-            // 활성 탭 업데이트 (필요 시)
             activeTab = item;
-            // 클릭 시 추가 애니메이션을 적용하지 않습니다.
         });
     });
 });

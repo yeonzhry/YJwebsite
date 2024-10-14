@@ -25,9 +25,7 @@ body {
 
 .nav-item {
     text-decoration: none;
-    /* 밑줄 제거 */
     color: inherit;
-    /* 부모의 색상을 상속 */
     font-size: 62px;
     margin: 0 73px;
     cursor: pointer;
@@ -38,9 +36,6 @@ body {
     transition: color 0.3s ease;
 }
 
-
-/* 흰색 박스 스타일 */
-
 .hover-bg {
     position: absolute;
     top: 12%;
@@ -49,25 +44,18 @@ body {
     height: 100%;
     background-color: #fff;
     opacity: 0;
-    /* 기본값 투명 */
     z-index: -1;
-    /* 텍스트 뒤에 나타나도록 */
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
-
-/* hover-text 스타일 */
 
 .hover-text {
     position: absolute;
     bottom: -13px;
-    /* 텍스트의 위치 조정 */
     left: 50%;
     transform: translateX(-50%);
     color: #000;
     font-size: 26px;
     opacity: 0;
-    /* 기본값은 투명하게 설정 */
     transition: opacity 0.3s ease;
     z-index: 5;
 }

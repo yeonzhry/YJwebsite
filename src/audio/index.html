@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audio Visualizer</title>
+    <link rel="icon" href="../yj.png" type="image/png">
     <link rel="stylesheet" href="./style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 </head>
@@ -15,22 +16,19 @@
         <canvas id="canvas1"></canvas>
         <audio id="audio1" src="../Armageddon.mp3"></audio>
         <input type="file" id="fileupload" accept="audio/*" style="display: none;">
-        <!-- 파일 업로드 버튼 (이미지) -->
+
         <label for="fileupload" id="fileUploadLabel" style="display: none;">
             <img src="../icon/upload.png" alt="Upload Audio" />
         </label>
 
-        <!-- 마이크 버튼 (이미지) -->
         <button id="micButton" style="display: none;">
             <img src="../icon/mic-off.png" alt="Mic Off" />
         </button>
 
-        <!-- 재생/일시정지 버튼 (이미지) -->
         <button id="playPauseButton" style="display: none;">
             <img src="../icon/play.png" alt="Play" />
         </button>
 
-        <!-- 시작 버튼 (이미지) -->
         <button id="startButton">
             <img src="../icon/start.png" alt="Click to Start" />
         </button>
@@ -41,24 +39,20 @@
             </div>
 
             <div class="control-header">
-                <!-- Start Color Control -->
                 <div class="control" id="start-color-control">
                     <div class="color-preview" id="start-color-preview"></div>
                 </div>
 
-                <!-- End Color Control -->
                 <div class="control" id="end-color-control">
                     <div class="color-preview" id="end-color-preview"></div>
                 </div>
 
-                <!-- Blur Control -->
                 <div class="control" id="blur-control">
                     <div class="color-preview">
                         <span>Blur</span>
                     </div>
                 </div>
 
-                <!-- Opacity Control -->
                 <div class="control" id="opacity-control">
                     <div class="color-preview">
                         <span>Opacity</span>
@@ -67,26 +61,18 @@
             </div>
 
             <div class="control-content">
-                <!-- Start Color Palette -->
                 <div class="content-item" id="start-color-content">
-                    <div class="palette" id="start-color-palette">
-                        <!-- JavaScript로 동적으로 생성될 영역 -->
-                    </div>
+                    <div class="palette" id="start-color-palette"></div>
                 </div>
 
-                <!-- End Color Palette -->
                 <div class="content-item" id="end-color-content">
-                    <div class="palette" id="end-color-palette">
-                        <!-- JavaScript로 동적으로 생성될 영역 -->
-                    </div>
+                    <div class="palette" id="end-color-palette"></div>
                 </div>
 
-                <!-- Blur Slider -->
                 <div class="content-item" id="blur-content">
                     <input type="range" id="blur-slider" class="custom-slider" min="0" max="20" step="1" value="5">
                 </div>
 
-                <!-- Opacity Slider -->
                 <div class="content-item" id="opacity-content">
                     <input type="range" id="opacity-slider" class="custom-slider" min="0" max="1" step="0.01" value="1">
                 </div>

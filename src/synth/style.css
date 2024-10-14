@@ -1,3 +1,4 @@
+@import url("https://use.typekit.net/grt0qxb.css");
 .whitenote {
     height: 100%;
     width: 50px;
@@ -37,6 +38,9 @@
 }
 
 #controls {
+    font-family: "lores-12", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     position: fixed;
     bottom: 200px;
     left: 50%;
@@ -53,9 +57,6 @@
     transition: ease 0.5s;
 }
 
-
-/* 이펙트 컨트롤 슬라이더는 기본적으로 숨김 */
-
 #effectControls {
     opacity: 0;
     width: 100%;
@@ -67,9 +68,6 @@
     gap: 0px;
     transition: ease 1s;
 }
-
-
-/* 각 이펙트 슬라이더 그룹 숨김 */
 
 .effect-slider {
     opacity: 0;
@@ -154,9 +152,6 @@
     background: #000000;
 }
 
-
-/* 모든 스타일 슬라이더에 대한 공통 스타일 */
-
 .styled-slider input[type="range"] {
     -webkit-appearance: none;
     width: 150px;
@@ -208,7 +203,6 @@ body {
 
 .navbar {
     position: fixed;
-    /* 화면에 고정 */
     top: 0;
     left: 0;
     width: 100%;
@@ -219,9 +213,7 @@ body {
 
 .nav-item {
     text-decoration: none;
-    /* 밑줄 제거 */
     color: inherit;
-    /* 부모의 색상을 상속 */
     font-size: 62px;
     margin: 0 73px;
     cursor: pointer;
@@ -232,9 +224,6 @@ body {
     transition: color 0.3s ease;
 }
 
-
-/* 흰색 박스 스타일 */
-
 .hover-bg {
     position: absolute;
     top: 12%;
@@ -243,25 +232,18 @@ body {
     height: 100%;
     background-color: #fff;
     opacity: 0;
-    /* 기본값 투명 */
     z-index: -1;
-    /* 텍스트 뒤에 나타나도록 */
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
-
-/* hover-text 스타일 */
 
 .hover-text {
     position: absolute;
     bottom: -13px;
-    /* 텍스트의 위치 조정 */
     left: 50%;
     transform: translateX(-50%);
     color: #000;
     font-size: 26px;
     opacity: 0;
-    /* 기본값은 투명하게 설정 */
     transition: opacity 0.3s ease;
     z-index: 5;
 }

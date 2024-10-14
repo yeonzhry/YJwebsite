@@ -13,7 +13,6 @@ canvas.webgl {
     left: 0;
     top: 0;
     z-index: 1;
-    /* 낮은 z-index */
 }
 
 #landing-page {
@@ -27,7 +26,6 @@ canvas.webgl {
     justify-content: center;
     align-items: center;
     z-index: 2;
-    /* 높은 z-index */
     pointer-events: auto;
 }
 

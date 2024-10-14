@@ -30,7 +30,6 @@ scene.add(spotLight)
 
 let model = null;
 
-// Load the TV model
 gltfLoader.load(
     '../video/tv.glb',
     (gltf) => {
@@ -41,16 +40,11 @@ gltfLoader.load(
                 child.position.x = 0.01
                 child.position.y = -0.25;
                 child.position.z = 0.03;
-                // child.rotation.y = Math.PI * 0.3;
-                // child.material = new THREE.MeshBasicMaterial({
-                //     wireframe: true
-                // })
             }
         });
         model.scale.set(4.5, 4.5, 4.5);
         scene.add(model);
 
-        // Add video texture to a plane and position it on the TV screen
         const video = document.createElement('video');
         video.src = '../video/vid.mp4';
         video.loop = true;
@@ -63,8 +57,7 @@ gltfLoader.load(
         const planeMaterial = new THREE.MeshBasicMaterial({ map: videoTexture });
         const videoPlane = new THREE.Mesh(planeGeometry, planeMaterial);
 
-        videoPlane.position.set(-0.053, 0.015, 0.2225); // Adjust position to match TV screen
-        // videoPlane.rotation.set(0, Math.PI * 0.3, 0); // Adjust rotation if necessary
+        videoPlane.position.set(-0.053, 0.015, 0.2225);
         videoPlane.scale.set(0.226, 0.27, 0.21)
         model.add(videoPlane);
     }
@@ -125,7 +118,6 @@ effectComposer.addPass(flimPass)
 
 const glitchPass = new GlitchPass()
 glitchPass.curF = 100
-    // glitchPass.fsQuad = 0
 effectComposer.addPass(glitchPass)
 
 const clock = new THREE.Clock();
@@ -139,17 +131,15 @@ const tick = () => {
     controls.update();
 
     effectComposer.render()
-        // renderer.render(scene, camera);
 
     window.requestAnimationFrame(tick);
 };
 
 tick();
 
-// 활성 탭 추적 변수 선언 및 초기 활성 탭 설정
 let activeTab = document.getElementById('tap-J');
 
-// 초기 활성 탭에 호버 효과 적용
+
 gsap.to(activeTab, {
     duration: 0,
     color: '#000',
@@ -167,13 +157,10 @@ gsap.to(activeTab.querySelector('.hover-text'), {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 네비게이션 바 호버 및 클릭 효과
     const navItems = document.querySelectorAll('.nav-item');
 
-    // 활성 탭 추적 변수 선언 및 초기 활성 탭 설정 (Y 탭으로 설정)
     let activeTab = document.getElementById('tap-J');
 
-    // 초기 활성 탭에 호버 효과 적용
     if (activeTab) {
         gsap.to(activeTab, {
             duration: 0,
@@ -195,20 +182,17 @@ document.addEventListener('DOMContentLoaded', () => {
     navItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
             if (item !== activeTab) {
-                // 텍스트 색상 변경
                 gsap.to(item, {
                     duration: 0.3,
                     color: '#000',
                 });
 
-                // 흰색 박스 나타나기
                 gsap.to(item.querySelector('.hover-bg'), {
                     duration: 0.3,
                     opacity: 1,
                     scale: 1.1,
                 });
 
-                // 호버 텍스트 나타나기
                 gsap.to(item.querySelector('.hover-text'), {
                     duration: 0.3,
                     opacity: 1,
@@ -218,20 +202,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         item.addEventListener('mouseleave', () => {
             if (item !== activeTab) {
-                // 텍스트 색상 복귀
                 gsap.to(item, {
                     duration: 0.3,
                     color: '#fff',
                 });
 
-                // 흰색 박스 숨기기
                 gsap.to(item.querySelector('.hover-bg'), {
                     duration: 0.3,
                     opacity: 0,
                     scale: 1,
                 });
 
-                // 호버 텍스트 숨기기
                 gsap.to(item.querySelector('.hover-text'), {
                     duration: 0.3,
                     opacity: 0,
@@ -239,11 +220,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // 클릭 이벤트에서 애니메이션 제거
         item.addEventListener('click', () => {
-            // 활성 탭 업데이트 (필요 시)
             activeTab = item;
-            // 클릭 시 추가 애니메이션을 적용하지 않습니다.
         });
     });
 });

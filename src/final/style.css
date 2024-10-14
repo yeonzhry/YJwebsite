@@ -1,3 +1,4 @@
+@import url("https://use.typekit.net/grt0qxb.css");
 body {
     background-color: #000;
     color: #fff;
@@ -26,9 +27,7 @@ body {
 
 .nav-item {
     text-decoration: none;
-    /* 밑줄 제거 */
     color: inherit;
-    /* 부모의 색상을 상속 */
     font-size: 62px;
     margin: 0 73px;
     cursor: pointer;
@@ -39,9 +38,6 @@ body {
     transition: color 0.3s ease;
 }
 
-
-/* 흰색 박스 스타일 */
-
 .hover-bg {
     position: absolute;
     top: 12%;
@@ -50,25 +46,18 @@ body {
     height: 100%;
     background-color: #fff;
     opacity: 0;
-    /* 기본값 투명 */
     z-index: -1;
-    /* 텍스트 뒤에 나타나도록 */
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
-
-/* hover-text 스타일 */
 
 .hover-text {
     position: absolute;
     bottom: -13px;
-    /* 텍스트의 위치 조정 */
     left: 50%;
     transform: translateX(-50%);
     color: #000;
     font-size: 26px;
     opacity: 0;
-    /* 기본값은 투명하게 설정 */
     transition: opacity 0.3s ease;
     z-index: 5;
 }
@@ -90,19 +79,33 @@ body {
 .project-item {
     width: 100vw;
     height: 100vh;
-    display: inline-flex;
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 0px 0px;
+    padding: 0;
     box-sizing: border-box;
+}
+
+.content-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.video-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-right: 100px;
+    margin-top: 80px;
 }
 
 .project-video {
     width: 30vw;
     height: 30vh;
     object-fit: cover;
-    margin-right: 100px;
     transition: transform 0.3s ease;
 }
 
@@ -110,13 +113,25 @@ body {
     transform: scale(1.3);
 }
 
+.description {
+    font-family: "lores-12", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 60px;
+}
+
 .video-description {
-    width: 350px;
-    height: 200px;
+    font-family: "lores-12", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    width: 400px;
+    height: 300px;
     text-align: left;
-    font-size: 1.2em;
-    align-items: center;
+    font-size: 1.3em;
     display: flex;
+    align-items: center;
     justify-content: center;
     word-wrap: break-word;
     overflow: hidden;
@@ -130,13 +145,13 @@ body {
     white-space: normal;
     display: flex;
     align-items: center;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 #hover {
     position: fixed;
-    bottom: 70px;
+    bottom: 60px;
     left: 50%;
     transform: translateX(-50%);
-    width: 200px;
+    width: 500px;
 }

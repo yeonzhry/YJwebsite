@@ -1,3 +1,4 @@
+@import url("https://use.typekit.net/grt0qxb.css");
 body {
     margin: 0;
     padding: 0;
@@ -18,9 +19,6 @@ body {
     display: none;
 }
 
-
-/* 시작 버튼 스타일 */
-
 #startButton {
     position: absolute;
     top: 50%;
@@ -35,37 +33,25 @@ body {
 
 #startButton img {
     width: 70%;
-    /* 필요에 따라 크기 조절 */
     height: auto;
 }
 
 #startButton:hover {
     transform: translate(-50%, -50%) scale(1.1);
-    /* 중앙 위치 유지하며 1.1배 확대 */
 }
-
-
-/* 이미지 기반 버튼 공통 스타일 */
 
 button img,
 label img {
     width: 70px;
-    /* 필요에 따라 크기 조절 */
     height: auto;
     transition: transform 0.2s;
 }
-
-
-/* 버튼 초기 숨김 */
 
 #playPauseButton,
 #micButton,
 #fileUploadLabel {
     display: none;
 }
-
-
-/* 재생/일시정지 버튼 및 마이크 버튼 위치 설정 */
 
 #playPauseButton {
     background: none;
@@ -96,11 +82,7 @@ label img {
 #micButton,
 #fileUploadLabel {
     transition: transform 0.6s ease-in-out;
-    /* 부드러운 확대/축소 애니메이션 */
 }
-
-
-/* 호버 시 1.1배 확대 */
 
 #playPauseButton:hover,
 #micButton:hover,
@@ -108,10 +90,10 @@ label img {
     transform: scale(1.1);
 }
 
-
-/* Control Panel Styles */
-
 #control-panel {
+    font-family: "lores-12", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     position: absolute;
     bottom: 20px;
     right: 20px;
@@ -185,9 +167,6 @@ label img {
     overflow: hidden;
 }
 
-
-/* Custom Slider Styles */
-
 .custom-slider {
     -webkit-appearance: none;
     width: 150px;
@@ -201,9 +180,6 @@ label img {
 .custom-slider:hover {
     opacity: 1;
 }
-
-
-/* Webkit 브라우저용 슬라이더 thumb */
 
 .custom-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -220,9 +196,6 @@ label img {
     background: #eee;
 }
 
-
-/* Firefox 브라우저용 슬라이더 thumb */
-
 .custom-slider::-moz-range-thumb {
     width: 20px;
     height: 20px;
@@ -236,9 +209,6 @@ label img {
 .custom-slider::-moz-range-thumb:hover {
     background: #eee;
 }
-
-
-/* 컨트롤 콘텐츠 확장 시 */
 
 #control-panel.expanded .control-content {
     max-height: 300px;
@@ -284,7 +254,6 @@ body {
 
 .navbar {
     position: fixed;
-    /* 화면에 고정 */
     top: 0;
     left: 0;
     width: 100%;
@@ -295,9 +264,7 @@ body {
 
 .nav-item {
     text-decoration: none;
-    /* 밑줄 제거 */
     color: inherit;
-    /* 부모의 색상을 상속 */
     font-size: 62px;
     margin: 0 73px;
     cursor: pointer;
@@ -308,9 +275,6 @@ body {
     transition: color 0.3s ease;
 }
 
-
-/* 흰색 박스 스타일 */
-
 .hover-bg {
     position: absolute;
     top: 12%;
@@ -319,25 +283,18 @@ body {
     height: 100%;
     background-color: #fff;
     opacity: 0;
-    /* 기본값 투명 */
     z-index: -1;
-    /* 텍스트 뒤에 나타나도록 */
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
-
-/* hover-text 스타일 */
 
 .hover-text {
     position: absolute;
     bottom: -13px;
-    /* 텍스트의 위치 조정 */
     left: 50%;
     transform: translateX(-50%);
     color: #000;
     font-size: 26px;
     opacity: 0;
-    /* 기본값은 투명하게 설정 */
     transition: opacity 0.3s ease;
     z-index: 5;
 }
